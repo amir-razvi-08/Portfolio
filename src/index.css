@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+:root {
+    font-family: "Inter", sans-serif;
+}
+
+/* Change dot color and size */
+.slick-dots li button:before {
+    font-size: 18px; /* Adjust size */
+    color: #fff; /* Change dot color */
+}
+
+.slick-dots li.slick-active button:before {
+    color: #f6fe05; /* Change active dot color */
+}
+.Item {
+    display: flex;
+    justify-content: center;
+}
+@media (max-width: 1024px) {
+}
+.Item {
+    padding: 30px;
+    justify-content: center;
+}
+@media (max-width: 768px) {
+    .Item {
+        padding: 15px;
+        justify-content: center;
+    }
+}
+@media (max-width: 480px) {
+    .Item {
+        padding: 10px;
+        /* padding-left: 10px; */
+    }
+}
+.slick-prev,
+.slick-next {
+    font-size: 30px; /* Increase the size of the buttons */
+    width: 50px; /* Adjust the width */
+    height: 50px; /* Adjust the height */
+    z-index: 100;
+    display: none; /* Ensure arrows are on top */
+}
+
+.slick-prev::before,
+.slick-next::before {
+    font-size: 30px; /* Increase the arrow icon size */
+    color: rgb(250, 250, 250); /* Customize color (optional) */
+}
+
+@media (max-width: 768px) {
+    .slick-next,
+    .slick-prev {
+        display: none !important;
+    }
+}
+
+input,
+textarea {
+    background-color: transparent !important; /* Ensures background remains transparent */
+    color: white !important; /* Set text color to white for better visibility */
+    caret-color: white; /* Change caret color to white */
+}
+
+/* Prevent autofill background color */
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+    -webkit-box-shadow: transparent inset !important; /* Prevents white background */
+    box-shadow: 0 0 0 1000px transparent inset !important; /* Prevents white background */
+    background-color: transparent !important; /* Ensures background remains transparent */
+}
