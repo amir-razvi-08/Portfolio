@@ -4,6 +4,7 @@ import { FaUser } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import RippleButton from "./RippleButton";
 import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
 const ContactForm = () => {
     const form = useRef();
     const [status, setStatus] = useState("");
@@ -19,7 +20,6 @@ const ContactForm = () => {
         const email = form.current.user_email.value.trim();
         const message = form.current.message.value.trim();
 
-        // Check if all fields are filled
         if (!name) {
             setStatus("Please enter your name!");
             return;
@@ -50,11 +50,13 @@ const ContactForm = () => {
         );
     };
 
+    const darkMode=useSelector((state)=>state.darkMode);
+
     return (
         <div>
-            <form ref={form} onSubmit={handleSubmit} className="pt-12">
-                <div className="bg-gray-900 mx-8 h-14 flex items-center border-gray-700 border-2 rounded-3xl focus-within:border-yellow-400 duration-300">
-                    <div className="ml-4 text-white text-xl">
+            <form ref={form} onSubmit={handleSubmit} className={`pt-12 ${darkMode?"dark":""}`}> 
+                <div className="dark:bg-gray-900 mx-8 h-14 flex items-center dark:border-gray-700 border-2 rounded-3xl focus-within:border-yellow-400 duration-300 bg-gray-500">
+                    <div className="ml-4 dark:text-white text-xl">
                         <FaUser />
                     </div>
                     <input
@@ -62,12 +64,12 @@ const ContactForm = () => {
                         placeholder="Full Name"
                         name="user_name"
                         required
-                        className="bg-transparent outline-none pl-4 w-full h-14"
+                        className="text-black dark:text-white bg-transparent outline-none pl-4 w-full h-14"
                         autoComplete="off"
                     />
                 </div>
-                <div className="bg-gray-900 mx-8 h-14 mt-12 flex items-center border-gray-700 border-2 rounded-3xl focus-within:border-yellow-400 duration-300">
-                    <div className="ml-4 text-white text-2xl">
+                <div className="bg-gray-500 dark:bg-gray-900 mx-8 h-14 mt-12 flex items-center dark:border-gray-700 border-2 rounded-3xl focus-within:border-yellow-400 duration-300">
+                    <div className="ml-4 text-black dark:text-white text-2xl">
                         <IoMdMail />
                     </div>
                     <input
@@ -75,13 +77,13 @@ const ContactForm = () => {
                         placeholder="Email"
                         name="user_email"
                         required
-                        className="bg-transparent outline-none pl-4 w-full h-14"
+                        className=" text-black dark:text-white bg-transparent outline-none pl-4 w-full h-14"
                         autoComplete="off"
                     />
                 </div>
-                <div className="bg-gray-900 mx-8 h-48 mt-16 flex items-center border-gray-700 border-2 rounded-3xl focus-within:border-yellow-400 duration-300">
+                <div className="text-black bg-gray-500 dark:bg-gray-900 mx-8 h-48 mt-16 flex items-center dark:border-gray-700 border-2 rounded-3xl focus-within:border-yellow-400 duration-300">
                     <textarea
-                        className="overflow-hidden w-full h-36 resize-none bg-transparent outline-none pl-4"
+                        className="text-black dark:text-white overflow-hidden w-full h-36 resize-none bg-transparent outline-none pl-4"
                         placeholder="Message"
                         name="message"
                         required

@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer";
 import { motion } from "framer-motion";
 import Contact from "./components/Contact/Contact";
 import Skill from "./components/Skill/Skill";
+import { useSelector } from "react-redux";
 
 const getRandom = (min, max) => Math.random() * (max - min) + min;
 function getRandomFromTwo(num1, num2) {
@@ -21,6 +22,8 @@ function App() {
     const projectsRef = useRef(null);
     const homeRef = useRef(null);
     const contactRef = useRef(null);
+
+    const darkMode = useSelector((state) => state.darkMode);
 
     const scrollToExperties = () => {
         expertiesRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -42,7 +45,6 @@ function App() {
     const [squares, setSquares] = useState([]);
 
     useEffect(() => {
-        // Generate an array of squares with random properties
         const generateSquares = () => {
             const squaresArray = [];
             for (let i = 0; i < 30; i++) {
@@ -90,11 +92,11 @@ function App() {
 
     return (
         <>
-            <div className=" inset-0 -z-5 overflow-hidden scrollbar-hide top-0 w-screen h-screen -bottom-24 sticky">
+            <div className={`inset-0 -z-5 overflow-hidden scrollbar-hide top-0 w-screen h-screen -bottom-24 sticky ${darkMode?"dark":""}`} >
                 <div
-                    className=" top-0 w-screen h-screen overflow-auto scrollbar-hide bg-neutral-950 
-  bg-[radial-gradient(ellipse_50%_250%_at_50%_-50%,rgba(120,119,198,0.2),rgba(255,255,255,0))] 
-  antialiased selection:bg-cyan-300 selection:text-cyan-950 z-20"
+                    className=" top-0 w-screen h-screen overflow-auto scrollbar-hide dark:bg-neutral-950 
+  dark:bg-[radial-gradient(ellipse_50%_250%_at_50%_-50%,rgba(120,119,198,0.2),rgba(255,255,255,0))] 
+  antialiased selection:bg-cyan-300 selection:text-cyan-950 z-20 bg-gray-200"
                 >
                     {squares.map((square, index) => (
                         <motion.div

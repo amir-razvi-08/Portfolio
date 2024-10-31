@@ -1,44 +1,46 @@
 import React from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import image from "../../../assets/currConv.png";
+import { useSelector } from "react-redux";
 
-function Card() {
+function Card({ image, h1, h2, content, link,toph1,toph2 }) {
+    const darkMode=useSelector((state)=>state.darkMode);
+
     return (
         <div
-            className="flex flex-wrap justify-center bjg-neutral-90 bsg-[radial-gradient(ellipse_50%_250%_at_50%_-50%,rgba(120,119,198,0.25),rgba(255,255,255,0))] bg-[#1c2129] bormder-4 border-neutral-700 card-container relative w-full  md:w-[30%] rounded-2xl m-2 overflow-hidden group transition-all duration-500 shadow-[0_3px_2px_rgba(51,51,51,1)]"
+            className={`${darkMode?"dark":""} flex flex-wrap justify-center dark:bg-[#1c2129] card-container relative w-full  md:w-[40%] rounded-2xl m-2 overflow-hidden group transition-all duration-500 shadow-[0_0_10px_5px_rgba(0,0,0,0.2)] dark:shadow-[0_3px_2px_rgba(51,51,51,1)]`}
             onClick={() => handleClick(id)}
         >
-            <div className="h-[13rem] w-[23rem] overflow-hidden m-5 rounded-lg cursor-pointer">
-                <img src={image} alt="" className="w-[23rem] group-hover:scale-110 duration-300" />
+            <div className="w-[90%] overflow-hidden m-6 rounded-lg cursor-pointer mb-4">
+                <img src={image} alt="" className="w-full group-hover:scale-110 duration-300" />
             </div>
-            <div className="">
-                <div className="flex justify-between items-center m-6">
-                    <div className="text-white text-2xl md:text-4xl">
-                        Project
-                        <div className="text-yellow-300 text-sm">small heading</div>
+            <div className="]">
+                <div className="flex justify-between items-center px-8 pb-4">
+                    <div className="text-black font-semibold dark:text-white text-xl md:text-2xl">
+                        {h1}
+                        <div className="text-red-500 text-xs">{h2}</div>
                     </div>
                 </div>
-                <div>
-                    <p className="flex text-white text-sm md:text-base p-6">
-                        jhgjhfyfckghv bhkjhjflosiu hlewfdsncn hjjjoiasjthgwlsntnlhjbityhsj aljf ihgot ao.jf aoht, a8hgmf'jf kjaohagtlk if'j
-                        tnkfhaLorentiumperferenkjfj lfjoeaijf0 fc riat jhgkgcorpori
-                    </p>
+                <div className="">
+                    <p className="flex text-black dark:text-white text-sm md:text-base px-7 pb-8">{content}</p>
                 </div>
             </div>
 
             <div
-                className={` bg-gradient-to-t from-red-700 to-red-700/0 absolute inset-0 text-white transition-all duration-500 ease-in-out transform translate-y-full group-hover:translate-y-0
+                className={` bg-gradient-to-t dark:from-red-700 dark:to-red-700/0 from-gray-700 to-gray-50/0 absolute inset-0 text-white transition-all duration-500 ease-in-out transform translate-y-full group-hover:translate-y-0
                 }`}
-                style={{
-                    background: "",
-                }}
             >
                 <div className="h-[40%]"></div>
                 <div className="text-xl w-full flex justify-center">
-                    <h1>html css java script</h1>
+                    <h1>{toph1}</h1>
+                </div>
+                <div className="text-xl w-full flex justify-center pb-6">
+                    <h1>{toph2}</h1>
                 </div>
                 <div className="w-full flex justify-center">
-                    <div className="w-12 h-12 bg-white text-xl text-red-500 flex justify-center items-center rounded-full cursor-pointer">
+                    <div
+                        onClick={() => window.open(link)}
+                        className="w-12 h-12 bg-white text-xl text-red-500 flex justify-center items-center rounded-full cursor-pointer"
+                    >
                         <FaExternalLinkAlt />
                     </div>
                 </div>

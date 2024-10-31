@@ -5,6 +5,7 @@ import { SiExpress } from "react-icons/si";
 import { SiSpringboot } from "react-icons/si";
 import { SiTailwindcss } from "react-icons/si";
 import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
 
 const iconVariants = (duration) => ({
   initial: { y: -10 },
@@ -20,8 +21,11 @@ const iconVariants = (duration) => ({
 });
 
 function Tech() {
+
+const darkMode=useSelector((state)=>state.darkMode);
+
   return (
-    <div className="w-screen z-50">
+    <div className={`w-screen z-50 ${darkMode?"dark":""} `}>
       <motion.div
         whileInView={{ opacity: 1, x: 0 }}
         initial={{ opacity: 0, x: -100 }}
@@ -33,7 +37,7 @@ function Tech() {
           variants={iconVariants(2.5)}
           initial="initial"
           animate="animate"
-          className="rounded-2xl border-4 border-neutral-700 p-4 cursor-pointer bg-neutral-900 bg-[radial-gradient(ellipse_50%_250%_at_50%_-50%,rgba(120,119,198,0.25),rgba(255,255,255,0))]"
+          className="rounded-2xl border-4 border-white dark:border-neutral-700 p-4 cursor-pointer bg-white dark:bg-neutral-900 dark:bg-[radial-gradient(ellipse_50%_250%_at_50%_-50%,rgba(120,119,198,0.25),rgba(255,255,255,0))] shadow-[0_0_10px_5px_rgba(0,0,0,0.2)]"
         >
           <RiReactjsLine className="text-cyan-400 text-7xl" />
         </motion.div>
@@ -43,7 +47,7 @@ function Tech() {
           variants={iconVariants(3)}
           initial="initial"
           animate="animate"
-          className="rounded-2xl border-4 border-neutral-700 p-4 cursor-pointer bg-neutral-900 bg-[radial-gradient(ellipse_50%_250%_at_50%_-50%,rgba(120,119,198,0.25),rgba(255,255,255,0))]"
+          className="rounded-2xl border-4 border-white bg-white dark:border-neutral-700 p-4 cursor-pointer dark:bg-neutral-900 dark:bg-[radial-gradient(ellipse_50%_250%_at_50%_-50%,rgba(120,119,198,0.25),rgba(255,255,255,0))] shadow-[0_0_10px_5px_rgba(0,0,0,0.2)]"
         >
           <FaNodeJs className="text-green-500 text-7xl" />
         </motion.div>
@@ -53,9 +57,9 @@ function Tech() {
           variants={iconVariants(5)}
           initial="initial"
           animate="animate"
-          className="rounded-2xl border-4 border-neutral-700 p-4 cursor-pointer bg-neutral-900 bg-[radial-gradient(ellipse_50%_250%_at_50%_-50%,rgba(120,119,198,0.25),rgba(255,255,255,0))]"
+          className="rounded-2xl border-4 border-white bg-white dark:border-neutral-700 p-4 cursor-pointer dark:bg-neutral-900 dark:bg-[radial-gradient(ellipse_50%_250%_at_50%_-50%,rgba(120,119,198,0.25),rgba(255,255,255,0))] shadow-[0_0_10px_5px_rgba(0,0,0,0.2)]"
         >
-          <SiExpress className="text-white text-7xl" />
+          <SiExpress className="dark:text-white text-7xl" />
         </motion.div>
 
         <motion.div
@@ -63,7 +67,7 @@ function Tech() {
           variants={iconVariants(2)}
           initial="initial"
           animate="animate"
-          className="rounded-2xl border-4 border-neutral-700 p-4 cursor-pointer bg-neutral-900 bg-[radial-gradient(ellipse_50%_250%_at_50%_-50%,rgba(120,119,198,0.25),rgba(255,255,255,0))]"
+          className="rounded-2xl border-4 border-white bg-white dark:border-neutral-700 p-4 cursor-pointer dark:bg-neutral-900 dark:bg-[radial-gradient(ellipse_50%_250%_at_50%_-50%,rgba(120,119,198,0.25),rgba(255,255,255,0))] shadow-[0_0_10px_5px_rgba(0,0,0,0.2)]"
         >
           <SiMongodb className="text-green-500 text-7xl" />
         </motion.div>
@@ -73,7 +77,7 @@ function Tech() {
           variants={iconVariants(6)}
           initial="initial"
           animate="animate"
-          className="rounded-2xl border-4 border-neutral-700 p-4 cursor-pointer bg-neutral-900 bg-[radial-gradient(ellipse_50%_250%_at_50%_-50%,rgba(120,119,198,0.25),rgba(255,255,255,0))]"
+          className="rounded-2xl border-4 border-white bg-white dark:border-neutral-700 p-4 cursor-pointer dark:bg-neutral-900 dark:bg-[radial-gradient(ellipse_50%_250%_at_50%_-50%,rgba(120,119,198,0.25),rgba(255,255,255,0))] shadow-[0_0_10px_5px_rgba(0,0,0,0.2)]"
         >
           <SiTailwindcss className="text-cyan-400 text-7xl" />
         </motion.div>
@@ -83,7 +87,7 @@ function Tech() {
           variants={iconVariants(4)}
           initial="initial"
           animate="animate"
-          className="rounded-2xl border-4 border-neutral-700 p-4 cursor-pointer bg-neutral-900 bg-[radial-gradient(ellipse_50%_250%_at_50%_-50%,rgba(120,119,198,0.25),rgba(255,255,255,0))]"
+          className="rounded-2xl border-4 border-white bg-white dark:border-neutral-700 p-4 cursor-pointer dark:bg-neutral-900 dark:bg-[radial-gradient(ellipse_50%_250%_at_50%_-50%,rgba(120,119,198,0.25),rgba(255,255,255,0))] shadow-[0_0_10px_5px_rgba(0,0,0,0.2)]"
         >
           <SiSpringboot className="text-green-500 text-7xl" />
         </motion.div>

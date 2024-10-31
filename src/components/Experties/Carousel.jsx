@@ -8,6 +8,7 @@ import { MdDesktopMac } from "react-icons/md";
 import { IoExtensionPuzzleSharp } from "react-icons/io5";
 import { AiOutlineAntDesign } from "react-icons/ai";
 import { IoMdAnalytics } from "react-icons/io";
+import { useSelector } from "react-redux";
 
 function Carousel() {
 
@@ -22,26 +23,27 @@ function Carousel() {
   autoplaySpeed: 2000,
     responsive: [
       {
-        breakpoint: 1024, // For screens 1024px and below
+        breakpoint: 1024,
         settings: {
           slidesToShow: 2,
-          // centerPadding:"40px" // Show 2 cards
         },
       },
       {
-        breakpoint: 768, // For screens 768px and below
+        breakpoint: 768,
         settings: {
-          slidesToShow: 1, // Show 1 card
+          slidesToShow: 1,
         },
       },
       {
-        breakpoint: 400, // For screens 480px and below
+        breakpoint: 400,
         settings: {
-          slidesToShow: 1, // Show 1 card
+          slidesToShow: 1,
         },
       },
     ],
   };
+
+  const darkMode=useSelector((state)=>state.darkMode);
 
   return (
     <>
@@ -49,7 +51,7 @@ function Carousel() {
         whileInView={{ opacity: 1, x: 0 }}
         initial={{ opacity: 0, x: -100 }}
         transition={{ duration: 1.5 }}
-        className="slider-container w-full md:w-[86%]"
+        className={`slider-container w-full md:w-[86%] ${darkMode?"dark":""}`}
       >
         <Slider {...settings}>
           <div className="Item z-40">

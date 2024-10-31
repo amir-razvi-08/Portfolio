@@ -2,17 +2,31 @@ import React from "react";
 import profile from "../../assets/profile.jpeg";
 import { motion } from "framer-motion";
 import { FaDownload } from "react-icons/fa";
+import { Typewriter } from "react-simple-typewriter";
+import { useSelector } from "react-redux";
 function Home({ homeRef }) {
+
+    const darkMode = useSelector((state)=>state.themeMode);
+
     return (
-        <div ref={homeRef} id="home" className="flex flex-wrap justify-around text-white z-40 items-center">
+        <div ref={homeRef} id="home" className={` ${darkMode? 'dark':''} flex flex-wrap justify-around dark:text-white z-40 items-center`}>
             <div className="w-[45rem] z-40 m-4">
                 <div className="mt-4 md:mt-16 p-2">
                     <h1 className="text-7xl font-normal tracking-tight">
                         Hii, I'm
                         <span className="text-red-500"> Amir Razvi</span>
                     </h1>
-                    <p className="py-2 text-[2.5rem] from-red-400 from-10% to-yellow-400 to-50% bg-gradient-to-r bg-clip-text text-transparent tracking-tight">
-                        Full Stack Developer
+                    <p className="py-2 text-[2.5rem] from-cyan-500 from-10% to-yellow-400 to-50% bg-gradient-to-r bg-clip-text text-transparent tracking-tight">
+                        A
+                        <Typewriter
+                            words={[" Full-Stack Developer", " Creative UI Designer", " Java & DSA Enthusiast", " Problem Solver"]}
+                            loop
+                            typeSpeed={50}
+                            deleteSpeed={30}
+                            delaySpeed={1000}
+                            cursor
+                            cursorStyle="|"
+                        />
                     </p>
                     <p className="text-[1.5rem]">
                         Welcome to my portfolio! I’m passionate about building functional, aesthetically pleasing digital solutions that make an impact.
