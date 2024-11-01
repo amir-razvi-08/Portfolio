@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./ProjectsCards/Card";
 import { motion } from "framer-motion";
 import reduxtodo from "../../assets/reduxtodo.png";
-import currencyConv from "../../assets/currconv.png";
+import currencyConv from "../../assets/currencyConv.png";
 import darkPortfolio from "../../assets/darkPortfolio.png";
 import lightPortfolio from "../../assets/lightPortfolio.png"
 import { useSelector } from "react-redux";
