@@ -8,7 +8,6 @@ const themeSlice = createSlice({
     reducers:{
         toggleTheme:(state)=>{
             state.darkMode=!state.darkMode;
-            console.log("hello");
         },
     },
 });

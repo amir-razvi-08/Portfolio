@@ -41,7 +41,8 @@ function Card({ image, h1, h2, content, link,toph1,toph2 }) {
                         onClick={() => window.open(link)}
                         className="w-12 h-12 bg-white text-xl text-red-500 flex justify-center items-center rounded-full cursor-pointer"
                     >
-                        <FaExternalLinkAlt />
+                        <div className="hover:scale-125 duration-300"><FaExternalLinkAlt /></div>
+                        
                     </div>
                 </div>
             </div>

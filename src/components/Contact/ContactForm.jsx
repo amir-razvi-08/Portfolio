@@ -55,7 +55,7 @@ const ContactForm = () => {
     return (
         <div>
             <form ref={form} onSubmit={handleSubmit} className={`pt-12 ${darkMode?"dark":""}`}> 
-                <div className="dark:bg-gray-900 mx-8 h-14 flex items-center dark:border-gray-700 border-2 rounded-3xl focus-within:border-yellow-400 duration-300 bg-gray-500">
+                <div className="dark:bg-gray-900 mx-8 h-14 flex items-center border-gray-700 border-2 rounded-3xl focus-within:border-yellow-400 duration-300 bg-gray-200">
                     <div className="ml-4 dark:text-white text-xl">
                         <FaUser />
                     </div>
@@ -68,7 +68,7 @@ const ContactForm = () => {
                         autoComplete="off"
                     />
                 </div>
-                <div className="bg-gray-500 dark:bg-gray-900 mx-8 h-14 mt-12 flex items-center dark:border-gray-700 border-2 rounded-3xl focus-within:border-yellow-400 duration-300">
+                <div className="bg-gray-200 dark:bg-gray-900 mx-8 h-14 mt-12 flex items-center border-gray-700 border-2 rounded-3xl focus-within:border-yellow-400 duration-300">
                     <div className="ml-4 text-black dark:text-white text-2xl">
                         <IoMdMail />
                     </div>
@@ -81,7 +81,7 @@ const ContactForm = () => {
                         autoComplete="off"
                     />
                 </div>
-                <div className="text-black bg-gray-500 dark:bg-gray-900 mx-8 h-48 mt-16 flex items-center dark:border-gray-700 border-2 rounded-3xl focus-within:border-yellow-400 duration-300">
+                <div className="text-black bg-gray-200 dark:bg-gray-900 mx-8 h-48 mt-16 flex items-center border-gray-700 border-2 rounded-3xl focus-within:border-yellow-400 duration-300">
                     <textarea
                         className="text-black dark:text-white overflow-hidden w-full h-36 resize-none bg-transparent outline-none pl-4"
                         placeholder="Message"

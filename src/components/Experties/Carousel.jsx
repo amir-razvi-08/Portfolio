@@ -58,14 +58,14 @@ function Carousel() {
             <Card 
             name="UI/UX Designer" 
             icon={<AiOutlineAntDesign />} 
-            headline="Designing intuitive, visually appealing interfaces that enhance user experiences."
+            headline="Designing visually appealing interfaces that enhance user experiences."
             ph1="User-Centered Design:"
             ph2="Wireframing & Prototyping:"
             ph3="User Research:"
             ph4="Interaction Design:"
             point1="Creating responsive layouts and interactive elements focused on user needs and behaviors."
-            point2="Developing wireframes, prototypes, and mockups using tools like Figma, Adobe XD, and Sketch to bring ideas to life."
-            point3=" Conducting usability testing and analyzing user feedback to inform design decisions and improve product functionality."
+            point2="Developing wireframes and prototypes using tools like Figma to bring ideas to life."
+            point3=" Conducting usability testing and analyzing user feedback to improve product functionality."
             point4="Crafting smooth, engaging interactions with a focus on accessibility and consistency across devices."
             />
           </div>

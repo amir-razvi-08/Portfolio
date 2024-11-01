@@ -7,6 +7,7 @@ import { FaInstagram, FaGithub, FaTwitter, FaUser, FaLinkedinIn, FaWhatsapp } fr
 import ContactForm from "./ContactForm";
 import hands from "../../assets/hands.jpg";
 import { useSelector } from "react-redux";
+
 function Contact({ contactRef }) {
     const darkMode = useSelector((state) => state.darkMode);
 
@@ -14,7 +15,7 @@ function Contact({ contactRef }) {
         <div ref={contactRef} id="contact" className={`mt-28 ${darkMode ? "dark" : ""}`}>
             <div className="w-full flex justify-center items-center mb-8">
                 <motion.div whileInView={{ opacity: 1, x: 0 }} initial={{ opacity: 0, x: 100 }} transition={{ duration: 1.5 }} className="">
-                    <h2 className="flex text-black dark:text-white md:text-6xl text-3xl items-center mb-8">Get in touch</h2>
+                    <h2 className="flex text-black dark:text-white md:text-6xl text-3xl items-center mb-8 font-bold">Get in touch</h2>
                 </motion.div>
             </div>
 
@@ -92,7 +93,7 @@ function Contact({ contactRef }) {
                             </div>
                         </div>
                         <div className="md:w-[35rem] w-full mx-4">
-                            <div className="text-black dark:text-white w-full h-full rounded-lg md:rounded-r-lg z-40 bg-white dark:bg-[#1c2129] dark:focus-within:bg-gradient-to-t from-red-700/0 to-gray-950/50 shadow-[0_0_10px_5px_rgba(0,0,0,0.2)]">
+                            <div className="text-black dark:text-white w-full h-full rounded-lg md:rounded-r-lg z-40 bg-white dark:bg-[#1c2129] focus-within:bg-gradient-to-t from-red-700/0 dark:to-gray-950/50 to-red-300 shadow-[0_0_10px_5px_rgba(0,0,0,0.2)]">
                                 <ContactForm />
                             </div>
                         </div>

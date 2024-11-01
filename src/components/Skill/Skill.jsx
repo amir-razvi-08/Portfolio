@@ -21,7 +21,7 @@ const Skill = ({skillRef}) => {
         <div className={`w-screen mt-28 ${darkMode?"dark":""}`} id="skills" ref={skillRef}>
             <div className="w-full flex justify-center">
             <motion.div whileInView={{ opacity: 1, x: 0 }} initial={{ opacity: 0, x: 100 }} transition={{ duration: 1.5 }} className="">
-          <h2 className="flex md:text-6xl text-3xl items-center text-black dark:text-white mb-8">Skills</h2>
+          <h2 className="flex md:text-6xl text-3xl items-center text-black dark:text-white mb-8 font-bold">Skills</h2>
         </motion.div>
             </div>
             <div className="w-full flex justify-center text-black dark:text-white">

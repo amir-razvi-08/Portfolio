@@ -1,24 +1,15 @@
 import React from "react";
-import { useState } from "react";
 import ARlogo from "../../assets/ARlogo.png";
 import AR from "../../assets/AR.png";
 import { IoMdMenu } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
-import { CiLight } from "react-icons/ci";
-import { IoMoonOutline } from "react-icons/io5";
+import { MdLightMode } from "react-icons/md";
+import { IoMdMoon } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../../features/themeMode/themeSlice";
-
-const spring = {
-    type: "spring",
-    stiffness: 700,
-    damping: 20,
-};
+import SideNav from "./SideNav";
 
 function Header({ scrollToSkills, scrollToProjects, scrollToHome, scrollToExperties, scrollToConnect, activeSection }) {
-    const [isOn, setIsOn] = useState(false);
-
-    const toggleSwitch = () => setIsOn(!isOn);
     const darkMode = useSelector((state) => state.darkMode);
     const dispatch = useDispatch();
 
@@ -67,11 +58,9 @@ function Header({ scrollToSkills, scrollToProjects, scrollToHome, scrollToExpert
 
             <div className=" flex items-center">
                 <motion.div
-                    className={`w-10 h-10 mr-4  ${
-                        darkMode ? "bg-white text-black text-3xl" : "bg-black text-white text-2xl"
+                    className={`w-8 h-8 mr-4  ${
+                        darkMode ? " text-white text-3xl" : " text-black text-2xl"
                     } rounded-full cursor-pointer flex justify-center items-center `}
-                    layout
-                    transition={spring}
                     onClick={() => dispatch(toggleTheme())}
                 >
                     <AnimatePresence mode="wait" initial={false}>
@@ -83,7 +72,7 @@ function Header({ scrollToSkills, scrollToProjects, scrollToHome, scrollToExpert
                                 exit={{ opacity: 0, y: 10 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <CiLight />
+                                <MdLightMode />
                             </motion.div>
                         ) : (
                             <motion.div
@@ -93,7 +82,7 @@ function Header({ scrollToSkills, scrollToProjects, scrollToHome, scrollToExpert
                                 exit={{ opacity: 0, y: 10 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <IoMoonOutline />
+                                <IoMdMoon />
                             </motion.div>
                         )}
                     </AnimatePresence>
@@ -105,12 +94,18 @@ function Header({ scrollToSkills, scrollToProjects, scrollToHome, scrollToExpert
                             activeSection === "contact" ? "text-yellow-700" : "dark:text-white/50 text-black/70"
                         }`}
                     >
-                        Let's Connect 
+                        Let's Connect
                     </div>
                 </div>
 
-                <div className="md:hidden text-3xl mr-4">
-                    <IoMdMenu />
+                <div className="md:hidden text-3xl mr-8">
+                    <SideNav
+                        scrollToSkills={scrollToSkills}
+                        scrollToExperties={scrollToExperties}
+                        scrollToHome={scrollToHome}
+                        scrollToProjects={scrollToProjects}
+                        scrollToConnect={scrollToConnect}
+                    />
                 </div>
             </div>
         </div>

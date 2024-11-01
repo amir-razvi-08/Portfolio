@@ -112,7 +112,7 @@ function App() {
                             }}
                             initial={{ y: 100 }}
                             animate={{
-                                y: -1000,
+                                y: -3000,
                                 x: square.moveX,
                             }}
                             transition={{
