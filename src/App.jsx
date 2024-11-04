@@ -6,7 +6,7 @@ import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer/Footer";
 import { motion } from "framer-motion";
 import Contact from "./components/Contact/Contact";
-import Skill from "./components/Skill/Skill";
+import Skills from "./components/Skill/Skills";
 import { useSelector, useDispatch } from "react-redux";
 import { updateSection } from "./features/scrollComponent/scrollSlice";
 
@@ -111,7 +111,7 @@ function App() {
                     <Header/>
                     <Home homeRef={sectionRefs.home} />
                     <Experties expertiesRef={sectionRefs.experties} />
-                    <Skill skillsRef={sectionRefs.skills} />
+                    <Skills skillsRef={sectionRefs.skills} />
                     <Projects projectsRef={sectionRefs.projects} />
                     <Contact contactRef={sectionRefs.contact} />
                     <Footer />
