@@ -6,8 +6,8 @@ import { IoLogoJavascript } from "react-icons/io5";
 import { SiMongodb, SiTailwindcss, SiRedux, SiFramer, SiExpress, SiSocketdotio, SiPostman } from "react-icons/si";
 import { DiPostgresql } from "react-icons/di";
 import { PiTreeStructureFill } from "react-icons/pi";
-import Circularbar from "./Progressbar/circularbar";
-import LinearBar from "./Progressbar/linearbar";
+import Circularbar from "./Progressbar/Circularbar";
+import LinearBar from "./Progressbar/Linearbar";
 
 const Skill = ({ skillsRef }) => {
     const darkMode = useSelector((state) => state.theme.darkMode);
