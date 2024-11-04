@@ -41,7 +41,7 @@ function Skills({ skillsRef }) {
                                     <div className="text-3xl p-6 dark:text-white">Backend Development & databases</div>
                                     <div className="flex flex-wrap justify-around gap-8 p-6">
                                         <div>
-                                            <Circularbar progress={60} />
+                                            <Circularbar progress={68} />
                                             <div className="flex justify-center items-center gap-2 text-lg">
                                                 <div className="bg-black text-white dark:bg-white dark:text-black p-[0.15rem] rounded text-sm">
                                                     <SiExpress />
@@ -50,7 +50,7 @@ function Skills({ skillsRef }) {
                                             </div>
                                         </div>
                                         <div>
-                                            <Circularbar progress={60} />
+                                            <Circularbar progress={75} />
                                             <div className="flex justify-center items-center gap-2 text-lg">
                                                 <div className="bg-black text-white dark:bg-white dark:text-black p-[0.15rem] rounded text-sm">
                                                     <SiMongodb />
@@ -59,7 +59,7 @@ function Skills({ skillsRef }) {
                                             </div>
                                         </div>
                                         <div>
-                                            <Circularbar progress={60} />
+                                            <Circularbar progress={70} />
                                             <div className="flex justify-center items-center gap-2 text-lg">
                                                 <div className="bg-black text-white dark:bg-white dark:text-black p-[0.15rem] rounded text-sm">
                                                     <DiPostgresql />
@@ -68,7 +68,7 @@ function Skills({ skillsRef }) {
                                             </div>
                                         </div>
                                         <div>
-                                            <Circularbar progress={60} />
+                                            <Circularbar progress={78} />
                                             <div className="flex justify-center items-center gap-2 text-lg">
                                                 <div className="bg-black text-white dark:bg-white dark:text-black p-[0.15rem] rounded text-sm">
                                                     <SiSocketdotio />
