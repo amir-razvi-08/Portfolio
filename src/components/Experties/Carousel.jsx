@@ -43,7 +43,7 @@ function Carousel() {
     ],
   };
 
-  const darkMode=useSelector((state)=>state.darkMode);
+  const darkMode=useSelector((state)=>state.theme.darkMode);
 
   return (
     <>

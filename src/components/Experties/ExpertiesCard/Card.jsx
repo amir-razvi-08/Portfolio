@@ -2,7 +2,7 @@ import React from "react";
 import { LuArrowRightToLine } from "react-icons/lu";
 import { useSelector } from "react-redux";
 function Card({ name, icon, headline, ph1, ph2, ph3, ph4, point1, point2, point3, point4 }) {
-    const darkMode = useSelector((state) => state.darkMode);
+    const darkMode = useSelector((state) => state.theme.darkMode);
 
     return (
         <div

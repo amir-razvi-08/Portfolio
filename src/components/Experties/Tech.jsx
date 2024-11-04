@@ -22,7 +22,7 @@ const iconVariants = (duration) => ({
 
 function Tech() {
 
-const darkMode=useSelector((state)=>state.darkMode);
+const darkMode=useSelector((state)=>state.theme.darkMode);
 
   return (
     <div className={`w-screen z-50 ${darkMode?"dark":""} `}>

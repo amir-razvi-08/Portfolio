@@ -7,7 +7,9 @@ import Footer from "./components/Footer/Footer";
 import { motion } from "framer-motion";
 import Contact from "./components/Contact/Contact";
 import Skill from "./components/Skill/Skill";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { updateSection } from "./features/scrollComponent/scrollSlice";
+
 
 const getRandom = (min, max) => Math.random() * (max - min) + min;
 function getRandomFromTwo(num1, num2) {
@@ -17,30 +19,17 @@ function getRandomFromTwo(num1, num2) {
 }
 
 function App() {
-    const expertiesRef = useRef(null);
-    const skillRef = useRef(null);
-    const projectsRef = useRef(null);
-    const homeRef = useRef(null);
-    const contactRef = useRef(null);
+    const dispatch = useDispatch();
 
-    const darkMode = useSelector((state) => state.darkMode);
+    const sectionRefs = {
+        home: useRef(null),
+        experties: useRef(null),
+        skills: useRef(null),
+        projects: useRef(null),
+        contact: useRef(null),
+    };
 
-    const scrollToExperties = () => {
-        expertiesRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    };
-    const scrollToSkills = () => {
-        skillRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    };
-    const scrollToHome = () => {
-        homeRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    };
-    const scrollToProjects = () => {
-        projectsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    };
-    const scrollToConnect = () => {
-        contactRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    };
-    const [activeSection, setActiveSection] = useState("");
+    const darkMode = useSelector((state) => state.theme.darkMode);
 
     const [squares, setSquares] = useState([]);
 
@@ -67,32 +56,28 @@ function App() {
     useEffect(() => {
         const handleIntersection = (entries) => {
             entries.forEach((entry) => {
-                if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-                    setActiveSection(entry.target.id);
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
+                    dispatch(updateSection(entry.target.id));
                 }
             });
         };
-        const observer = new IntersectionObserver(handleIntersection, {
-            threshold: 0.5,
+
+        const observer = new IntersectionObserver(handleIntersection, { threshold: 0.4 });
+
+        Object.values(sectionRefs).forEach((ref) => {
+            if (ref.current) observer.observe(ref.current);
         });
-        if (expertiesRef.current) observer.observe(expertiesRef.current);
-        if (projectsRef.current) observer.observe(projectsRef.current);
-        if (homeRef.current) observer.observe(homeRef.current);
-        if (skillRef.current) observer.observe(skillRef.current);
-        if (contactRef.current) observer.observe(contactRef.current);
 
         return () => {
-            if (expertiesRef.current) observer.unobserve(expertiesRef.current);
-            if (projectsRef.current) observer.unobserve(projectsRef.current);
-            if (homeRef.current) observer.unobserve(homeRef.current);
-            if (skillRef.current) observer.unobserve(skillRef.current);
-            if (contactRef.current) observer.unobserve(contactRef.current);
+            Object.values(sectionRefs).forEach((ref) => {
+                if (ref.current) observer.unobserve(ref.current);
+            });
         };
-    }, []);
+    }, [dispatch]);
 
     return (
         <>
-            <div className={`inset-0 -z-5 overflow-hidden scrollbar-hide top-0 w-screen h-screen -bottom-24 sticky ${darkMode?"dark":""}`} >
+            <div className={`inset-0 -z-5 overflow-hidden scrollbar-hide top-0 w-screen h-screen -bottom-24 sticky ${darkMode ? "dark" : ""}`}>
                 <div
                     className=" top-0 w-screen h-screen overflow-auto scrollbar-hide dark:bg-neutral-950 
   dark:bg-[radial-gradient(ellipse_50%_250%_at_50%_-50%,rgba(120,119,198,0.2),rgba(255,255,255,0))] 
@@ -123,19 +108,12 @@ function App() {
                         />
                     ))}
 
-                    <Header
-                        scrollToSkills={scrollToSkills}
-                        scrollToExperties={scrollToExperties}
-                        scrollToHome={scrollToHome}
-                        scrollToProjects={scrollToProjects}
-                        scrollToConnect={scrollToConnect}
-                        activeSection={activeSection}
-                    />
-                    <Home homeRef={homeRef} />
-                    <Experties expertiesRef={expertiesRef} />
-                    <Skill skillRef={skillRef} />
-                    <Projects projectsRef={projectsRef} />
-                    <Contact contactRef={contactRef} />
+                    <Header/>
+                    <Home homeRef={sectionRefs.home} />
+                    <Experties expertiesRef={sectionRefs.experties} />
+                    <Skill skillsRef={sectionRefs.skills} />
+                    <Projects projectsRef={sectionRefs.projects} />
+                    <Contact contactRef={sectionRefs.contact} />
                     <Footer />
                 </div>
             </div>

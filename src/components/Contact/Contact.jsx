@@ -9,7 +9,7 @@ import hands from "../../assets/hands.jpg";
 import { useSelector } from "react-redux";
 
 function Contact({ contactRef }) {
-    const darkMode = useSelector((state) => state.darkMode);
+    const darkMode = useSelector((state) => state.theme.darkMode);
 
     return (
         <div ref={contactRef} id="contact" className={`mt-28 ${darkMode ? "dark" : ""}`}>
@@ -23,7 +23,7 @@ function Contact({ contactRef }) {
                 <div className=" flex flex-wrap justify-center z-40">
                     <div className=" w-full flex flex-wrap justify-center  border-2xl rounded-xl ">
                         <div className="md:w-[35rem] w-full m-4 md:my-0 rounded-lg z-40">
-                            <div className="w-full h-full bg-white dark:bg-[#1c2129] rounded-lg shadow-[0_0_10px_5px_rgba(0,0,0,0.2)] ">
+                            <div className="w-full h-full bg-white dark:bg-gray-800 rounded-lg shadow-[0_0_10px_5px_rgba(0,0,0,0.2)] ">
                                 <div className="flex items-center h-56 overflow-hidden">
                                     <img src={hands} alt="" className="rounded-lg w-full h-32 mx-8" />
                                 </div>
@@ -93,7 +93,7 @@ function Contact({ contactRef }) {
                             </div>
                         </div>
                         <div className="md:w-[35rem] w-full mx-4">
-                            <div className="text-black dark:text-white w-full h-full rounded-lg md:rounded-r-lg z-40 bg-white dark:bg-[#1c2129] focus-within:bg-gradient-to-t from-red-700/0 dark:to-gray-950/50 to-red-300 shadow-[0_0_10px_5px_rgba(0,0,0,0.2)]">
+                            <div className="text-black dark:text-white w-full h-full rounded-lg md:rounded-r-lg z-40 bg-white dark:bg-gray-800 focus-within:bg-gradient-to-t from-red-700/0 dark:to-gray-950/50 to-red-300 shadow-[0_0_10px_5px_rgba(0,0,0,0.2)]">
                                 <ContactForm />
                             </div>
                         </div>

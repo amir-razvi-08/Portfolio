@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 function Experties({expertiesRef}) {
   const isSmallDevice = window.innerWidth < 768;
-  const darkMode=useSelector((state)=>state.darkMode);
+  const darkMode=useSelector((state)=>state.theme.darkMode);
 
   return (
     <div ref={expertiesRef} id="experties" className={`flex flex-wrap mt-20 justify-center z-40 ${darkMode?"dark":""}`}>

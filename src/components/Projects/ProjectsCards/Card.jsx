@@ -3,12 +3,11 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import { useSelector } from "react-redux";
 
 function Card({ image, h1, h2, content, link,toph1,toph2 }) {
-    const darkMode=useSelector((state)=>state.darkMode);
+    const darkMode=useSelector((state)=>state.theme.darkMode);
 
     return (
         <div
-            className={`${darkMode?"dark":""} flex flex-wrap justify-center dark:bg-[#1c2129] card-container relative w-full  md:w-[40%] rounded-2xl m-2 overflow-hidden group transition-all duration-500 shadow-[0_0_10px_5px_rgba(0,0,0,0.2)] dark:shadow-[0_3px_2px_rgba(51,51,51,1)]`}
-            onClick={() => handleClick(id)}
+            className={`${darkMode?"dark":""} flex flex-wrap justify-center dark:bg-gray-800 card-container relative w-full  md:w-[40%] rounded-2xl m-2 overflow-hidden group transition-all duration-500 shadow-[0_0_10px_5px_rgba(0,0,0,0.2)] dark:shadow-[0_3px_2px_rgba(51,51,51,1)]`}
         >
             <div className="w-[90%] overflow-hidden m-6 rounded-lg cursor-pointer mb-4">
                 <img src={image} alt="" className="w-full group-hover:scale-110 duration-300" />

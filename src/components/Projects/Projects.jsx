@@ -8,7 +8,7 @@ import lightPortfolio from "../../assets/lightPortfolio.png"
 import { useSelector } from "react-redux";
 
 function Projects({ projectsRef }) {
-    const darkMode = useSelector((state) => state.darkMode);
+    const darkMode = useSelector((state) => state.theme.darkMode);
 
     const portfolio = darkMode ? lightPortfolio : darkPortfolio;
 
