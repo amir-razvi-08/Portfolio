@@ -6,7 +6,7 @@ import { IoLogoJavascript } from "react-icons/io5";
 import { SiMongodb, SiTailwindcss, SiRedux, SiFramer, SiExpress, SiSocketdotio, SiPostman } from "react-icons/si";
 import { DiPostgresql } from "react-icons/di";
 import { PiTreeStructureFill } from "react-icons/pi";
-import LinearBar from "./Progressbar/Linearbar";
+import LinearBar from "./Progressbar/LinearBar";
 import Circularbar from "./Progressbar/Circularbar";
 
 
