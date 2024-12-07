@@ -1,50 +1,46 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import { motion } from "framer-motion";
+import { motion,useInView} from "framer-motion";
 import "react-circular-progressbar/dist/styles.css";
 import { useSelector } from "react-redux";
 
 const Circularbar = ({ progress }) => {
+  const ref=useRef(null);
+  const inView=useInView(ref)
 
   const darkMode = useSelector((state) => state.theme.darkMode);
 
   const [currentProgress, setCurrentProgress] = useState(0);
-  const ref = useRef(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const interval = setInterval(() => {
-              setCurrentProgress((prev) => {
-                if (prev < progress) {
-                  return Math.min(prev + 1, progress);
-                } else {
-                  clearInterval(interval);
-                  return prev;
-                }
-              });
-            }, 20);
-          }
-        });
-      },
-      {
-        threshold: 0.5,
+  useEffect(()=>{
+    let timer;
+  if (inView) {
+    let start = 0;
+    const duration = 1000;
+    const interval = 20;
+    const step = (progress / (duration / interval));
+
+    timer = setInterval(() => {
+      start += step;
+      if (start >= progress) {
+        start = progress;
+        clearInterval(timer);
       }
-    );
+      setCurrentProgress(Math.round(start));
+    }, interval);
+  } else {
+    setCurrentProgress(0);
+  }
 
-    if (ref.current) observer.observe(ref.current);
-
-    return () => {
-      if (ref.current) observer.unobserve(ref.current); 
-    };
-  }, [progress]);
+  return () => {
+    clearInterval(timer);
+  };
+}, [inView, progress]);
 
   return (
     <div className="flex justify-center items-center h-full" ref={ref}>
       <motion.div
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 3 }}
         className="relative md:w-24 md:h-24 w-32 h-32"
       >
         <CircularProgressbar
