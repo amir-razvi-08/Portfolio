@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { IoMdMenu } from "react-icons/io";
 import { MdClose } from "react-icons/md";
 import { motion, AnimatePresence } from "framer-motion";
@@ -24,7 +24,6 @@ const variants = {
 
 const SideNav = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
-  const activeSection = useSelector((state) => state.activeSection.currentSection);
   const dispatch = useDispatch();
   
   const [isOpen, setIsOpen] = useState(false);
@@ -35,6 +34,7 @@ const SideNav = () => {
   };
 
   const handleClick = (id) => {
+    setIsOpen(false)
     dispatch(scrollToSection(id));
   }
 
@@ -64,7 +64,7 @@ const SideNav = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            ref={navRef} // Attach the ref to the navbar
+            ref={navRef}
             initial={{ x: 250 }}
             animate={{ x: 0 }}
             exit={{ x: 250 }}
@@ -80,7 +80,7 @@ const SideNav = () => {
                   whileTap={{ scale: 0.95 }}
                   className={`flex items-center mb-5 cursor-pointer  `}
                 >
-                  <div className={`${activeSection === 'home' ? "border-b-2 border-gray-700 dark:border-gray-200" : ""}`}>Home</div>
+                  <div>Home</div>
                   
                 </motion.div>
                 <motion.div
@@ -90,7 +90,7 @@ const SideNav = () => {
                   className="flex items-center mb-5 cursor-pointer"
                   onClick={() => handleClick('experties')}
                 >
-                  <div className={`${activeSection === 'experties' ? "border-b-2 border-gray-700 dark:border-gray-200" : ""}`}>Experties</div>
+                  <div>Experties</div>
                 </motion.div>
                 <motion.div
                   variants={variants}
@@ -99,7 +99,7 @@ const SideNav = () => {
                   className="flex items-center mb-5 cursor-pointer"
                   onClick={() => handleClick('skills')}
                 >
-                  <div className={`${activeSection === 'skills' ? "border-b-2 border-gray-700 dark:border-gray-200" : ""}`}>Skills</div>
+                  <div>Skills</div>
                 </motion.div>
                 <motion.div
                   variants={variants}
@@ -108,7 +108,7 @@ const SideNav = () => {
                   className="flex items-center mb-5 cursor-pointer"
                   onClick={() => handleClick('projects')}
                 >
-                   <div className={`${activeSection === 'projects' ? "border-b-2 border-gray-700 dark:border-gray-200" : ""}`}>Projects</div>
+                   <div>Projects</div>
                 </motion.div>
                 <motion.div
                   variants={variants}
@@ -117,7 +117,7 @@ const SideNav = () => {
                   className="flex items-center mb-5 cursor-pointer"
                   onClick={() => handleClick('contact')}
                 >
-                   <div className={`${activeSection === 'contact' ? "border-b-2 border-gray-700 dark:border-gray-200" : ""}`}>Contact</div>
+                   <div>Contact</div>
                 </motion.div>
               </div>
             </nav>
