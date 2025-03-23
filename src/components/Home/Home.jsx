@@ -32,7 +32,7 @@ function Home({ homeRef }) {
                         With expertise in full-stack development, SEO optimization, and creating user-centered designs, I turn complex challenges into
                         streamlined, intuitive experiences. Whether you’re looking for someone to design a dynamic website, optimize your app’s
                         performance, or solve intricate technical problems, I’m here to help.
-                        <a href="/Amir_s_Resume.pdf" download="Amir_s_Resume.pdf" className="flex items-center my-4 w-0">
+                        <a href="/Mohd_Amir_s_Resume.pdf" download="Mohd_Amir_s_Resume.pdf" className="flex items-center my-4 w-0">
                             <span className="flex items-center bg-red-600 text-gray-200 rounded-lg hover:bg-orange-900 duration-300 px-2 py-1">
                                 <FaDownload className="mr-2" />
                                 Resume
